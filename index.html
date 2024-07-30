@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detective Hunt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Detective Hunt</h1>
+        <div id="setup">
+            <p>Enter player names (up to 20):</p>
+            <div id="player-names">
+                <!-- Dynamically generate input fields for 20 players -->
+                <script>
+                    for (let i = 1; i <= 20; i++) {
+                        document.write(`<input type="text" id="player${i}" placeholder="Player ${i}"><br>`);
+                    }
+                </script>
+            </div>
+            <button onclick="startGame()">Start Game</button>
+        </div>
+        <div id="game" style="display: none;">
+            <div id="board">
+                <div id="player-boards"></div>
+            </div>
+            <div id="game-info">
+                <p id="role-info"></p>
+            </div>
+            <div id="actions">
+                <button onclick="investigate()">Investigate</button>
+                <button onclick="accuse()">Accuse</button>
+                <button onclick="passTurn()">Pass</button>
+                <button id="kill-button" style="display: none;" onclick="kill()">Kill</button>
+            </div>
+            <div id="messages"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
